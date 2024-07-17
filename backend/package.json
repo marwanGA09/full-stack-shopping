@@ -4,11 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "serve": "json-server --port 3001 --watch json/data.json"
+    "serve": "json-server --port 3001 --watch json/data.json",
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "json-server": "^1.0.0-beta.1"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
   }
 }
