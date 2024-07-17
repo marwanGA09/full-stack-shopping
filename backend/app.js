@@ -3,6 +3,7 @@ const fs = require('fs');
 const morgan = require('morgan');
 // ALLOW TO BE ACCESSED FROM SPECIFIED OR ANYWHERE ON INTERNAT
 const cors = require('cors');
+const exp = require('constants');
 
 const myJSON = JSON.parse(
   fs.readFileSync(`${__dirname}/json/data.json`, 'utf-8')
@@ -10,7 +11,6 @@ const myJSON = JSON.parse(
 // console.log(myJSON);
 
 const app = express();
-
 // from any where, ONLY DEV MODE
 // app.use(cors());
 
@@ -22,12 +22,15 @@ app.use(cors(corsOption));
 
 app.use(morgan('dev'));
 
+// app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('<p>Here is express</p>');
 });
 
 app.get('/products', (req, res) => {
-  console.log(myJSON);
+  //   console.log(myJSON);
   res.json(myJSON);
 });
 
@@ -36,6 +39,13 @@ app.get('/products/:id', (req, res) => {
   const currentProduct = myJSON.find((product) => product.id === id);
   if (currentProduct) res.json(currentProduct);
   res.status(404).end();
+});
+
+app.post('/addProduct', (req, res) => {
+  console.log('posted');
+  const data = req.body;
+  // fs.writeFile(`${__dirname}/json/data.json`)
+  res.end();
 });
 
 const PORT = process.env.PORT || 8888;

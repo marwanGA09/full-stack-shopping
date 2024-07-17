@@ -1,14 +1,7 @@
 import axios from 'axios';
-
+import myURL from './URL/url';
 export default async function fetcher(params) {
-  const url = params
-    ? `http://localhost:8888/products/${params}`
-    : `http://localhost:8888/products`;
-
-  // JSON SERVER FILE
-  // const url = params
-  //   ? `http://localhost:3001/products/${params}`
-  //   : `http://localhost:3001/products`;
+  const url = params ? `${myURL}/products/${params}` : `${myURL}/products`;
   try {
     const res = await axios.get(url);
     if (res.statusText.toLowerCase() !== 'ok') {

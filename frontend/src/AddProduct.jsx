@@ -1,6 +1,6 @@
 import { Form, redirect } from 'react-router-dom';
-import Button from './Button';
 import axios from 'axios';
+import myURL from './URL/url';
 
 function AddProduct() {
   return (
@@ -51,7 +51,7 @@ export async function action({ request, params }) {
   console.log('formData', data);
   console.log('content', content);
   axios
-    .post('http://localhost:3001/products', content)
+    .post(`${myURL}/addProduct`, content, { contentType: 'application/json' })
     .then((res) => console.log('post res', res))
     .catch((err) => console.log('err', err));
 
