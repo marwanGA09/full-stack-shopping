@@ -1,0 +1,82 @@
+/* ContactPage.module.css */
+.contact {
+  padding: 20px;
+}
+
+.contact h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.contactForm .formGroup {
+  margin-bottom: 15px;
+}
+
+.contactForm label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contactForm input,
+.contactForm textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.contactForm button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contactForm button:hover {
+  background-color: #444;
+}
+
+.contactInfo {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contactInfo h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.contactInfo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contactInfo li {
+  margin-bottom: 10px;
+}
+
+.contactInfo a {
+  color: #333;
+  text-decoration: none;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}

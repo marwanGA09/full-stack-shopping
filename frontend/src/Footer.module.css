@@ -1,0 +1,35 @@
+.footer {
+  padding: 6rem 2rem 2rem;
+  text-align: center;
+  color: rgb(232, 232, 232);
+  background-color: rgb(58, 58, 58);
+}
+
+.footer ul {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.footer li {
+  list-style: none;
+}
+
+.footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer p {
+  letter-spacing: 0.2rem;
+}
+
+.footer img {
+  width: 2rem;
+}

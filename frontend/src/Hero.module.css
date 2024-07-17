@@ -1,0 +1,40 @@
+.hero {
+  /* background-color: yellow; */
+  color: rgb(82, 82, 82);
+  padding: 9rem 2rem;
+  background-image: url('/greenbk.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  width: 100%;
+  min-height: 65rem;
+}
+
+.hero h1 {
+  /* width: 60%; */
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+.hero p {
+  width: min(65ch, 80%);
+  font-weight: 700;
+  margin-top: 3rem;
+}
+
+.hero button {
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.2rem;
+  font-weight: 900;
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+  background-color: #95c675;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.hero a {
+  text-decoration: none;
+  color: inherit;
+}

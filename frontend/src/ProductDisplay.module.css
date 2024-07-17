@@ -1,0 +1,82 @@
+.display {
+  width: 40rem;
+  padding: 2rem;
+  position: relative;
+  background-color: white;
+  min-height: (min-content);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 0 3rem 1px gray;
+  border-top-right-radius: 5rem;
+}
+
+.price {
+  position: absolute;
+  z-index: 3;
+  top: 2rem;
+  right: 2rem;
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.display span {
+  display: block;
+  color: #4dc200;
+}
+
+.display span:first-child {
+  text-decoration: line-through;
+  color: rgb(185, 185, 185);
+}
+
+.display a,
+.display button {
+  border: 1px solid #4dc200;
+  border-radius: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.display a {
+  /* color: #efefef; */
+  color: #4dc200;
+}
+
+/* .display button {ihhhh
+  margin-left: 15rem;
+} */
+
+/* .last {
+  background-color: brown;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: start;
+  width: 100%;
+} */
+
+.counter {
+  width: min-content;
+  margin-left: auto;
+}
+
+.counter button {
+  margin: 0;
+}
+
+/* 
+image
+ */
+
+.display img {
+  width: 30rem;
+  height: 30rem;
+  object-fit: contain;
+  padding: 0.8rem;
+}

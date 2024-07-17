@@ -1,0 +1,27 @@
+.cartPage {
+  padding: 4rem 3rem;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.cartItem {
+  background-color: rgb(242, 231, 215);
+  box-shadow: 0 0 3px 3px rgb(168, 166, 164);
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 50rem;
+  gap: 1rem 1rem;
+}
+
+.cartItem p:first-child {
+  grid-column: span 3;
+}
+
+.cartItem div {
+  text-align: center;
+}

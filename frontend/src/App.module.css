@@ -1,0 +1,9 @@
+.app {
+  margin: 0 auto;
+  max-width: 1400px;
+  background-color: rgb(243, 238, 231);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

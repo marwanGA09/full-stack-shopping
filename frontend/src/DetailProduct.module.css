@@ -1,0 +1,38 @@
+.detail {
+  width: 90rem;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 4px 1px rgba(188, 186, 186, 0.776);
+  column-gap: 4rem;
+}
+
+.detail .abs {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  /* background-color: rgb(66, 138, 201); */
+  color: #95c675;
+}
+
+.detail img {
+  width: 20rem;
+  grid-row: span 4;
+}
+
+.detail div {
+  align-self: self-start;
+  margin-left: auto;
+  display: flex;
+  gap: 3rem;
+}
+
+.detail em {
+  font-weight: 900;
+  color: rgb(255, 153, 0);
+}

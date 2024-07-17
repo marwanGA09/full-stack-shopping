@@ -1,0 +1,37 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.nav ul {
+  display: flex;
+  gap: 3rem;
+  /* background-color: antiquewhite; */
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav img {
+  width: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 0.2rem 1.3rem;
+  border-radius: 0.3rem;
+}
+
+.nav > li > a {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  scale: 1.5;
+  margin-left: 2rem;
+}
+
+.nav ul :global(.active) {
+  background-color: rgb(43, 183, 19);
+}
