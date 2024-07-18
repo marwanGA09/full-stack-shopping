@@ -52,9 +52,12 @@ export async function action({ request, params }) {
   console.log('content', content);
   axios
     .post(`${myURL}/addProduct`, content, { contentType: 'application/json' })
-    .then((res) => console.log('post res', res))
-    .catch((err) => console.log('err', err));
-
+    .then((res) => {
+      console.log('post res', res);
+    })
+    .catch((err) => {
+      console.log('err', err);
+    });
   return redirect('/shopping');
 }
 
