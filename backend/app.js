@@ -241,10 +241,16 @@ app.post('/addProduct', (req, res) => {
   console.log('posted');
   // const datalength = products.length;
   const data = req.body;
+  console.log('data', data);
   products = [...products, data];
-  console.log('new products', products);
+  // console.log('new products', products);
   // fs.writeFile(`${__dirname}/json/data.json`)
-  res.end();
+  res.json({
+    status: 'success',
+    data: {
+      product: data,
+    },
+  });
 });
 
 const PORT = process.env.PORT || 8888;
