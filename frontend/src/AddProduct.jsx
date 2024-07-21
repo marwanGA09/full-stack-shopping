@@ -51,7 +51,7 @@ export async function action({ request, params }) {
   console.log('formData', data);
   console.log('content', content);
   axios
-    .post(`${myURL}/addProduct`, content, { contentType: 'application/json' })
+    .post(`${myURL}/products`, content, { contentType: 'application/json' })
     .then((res) => {
       console.log('post res', res);
     })
