@@ -244,7 +244,14 @@ app.post('/addProduct', (req, res) => {
   console.log('data', data);
   products = [...products, data];
   // console.log('new products', products);
-  // fs.writeFile(`${__dirname}/json/data.json`)
+  fs.writeFile(
+    `${__dirname}/json/data.json`,
+    JSON.stringify(products),
+    (err) => {
+      err && console.error(err);
+      console.log('successful');
+    }
+  );
   res.json({
     status: 'success',
     data: {
