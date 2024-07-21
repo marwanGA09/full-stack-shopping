@@ -25,4 +25,4 @@ dist-ssr
 
 # data store
 
-*.json
+/backend/json/data.json

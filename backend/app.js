@@ -3,8 +3,8 @@ const morgan = require('morgan');
 // ALLOW TO BE ACCESSED FROM SPECIFIED OR ANYWHERE ON INTERNAT
 const cors = require('cors');
 
-const productControllers = require('./controllers/products');
-console.log('productcontroller', productControllers);
+const productRoute = require('./router/products');
+
 const app = express();
 // from any where, ONLY DEV MODE
 // app.use(cors());
@@ -20,10 +20,6 @@ app.use(morgan('dev'));
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/products', productControllers.getAllProducts);
-
-app.get('/products/:id', productControllers.getProduct);
-
-app.post('/products', productControllers.addProduct);
+app.use('/products', productRoute);
 
 module.exports = app;
