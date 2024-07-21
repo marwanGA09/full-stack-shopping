@@ -1,0 +1,19 @@
+GET http://localhost:8888/products HTTP/1.1
+
+###
+
+POST http://localhost:8888/addProduct HTTP/1.1
+Content-Type : "application/json"
+
+
+  { "id": "17",
+   "title": "xxxxxxxxxxx",
+   "price": 24.99,
+   "description": "xxxxxxxxxx.",
+   "category": "cloth",
+   "image":
+     "https://images-cdn.ubuy.qa/6513b2e7fcf4b717db7d529d-women-s-cotton-basic-simple-stretch.jpg",
+   "rating": {
+   "count": 370,
+    },
+  }
