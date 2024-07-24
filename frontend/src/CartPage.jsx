@@ -20,7 +20,7 @@ function CartPage() {
   function handleRemoveItem(itemId) {
     cartSetter((cart) => {
       const filtered = cart.filter((item) => item.id !== itemId);
-      console.log(filtered);
+      // console.log(filtered);
       if (filtered.length === 0) {
         // alert('empth');
         navigate('/shopping');

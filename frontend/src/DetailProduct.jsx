@@ -18,8 +18,6 @@ function DetailProduct() {
     // staleTime: 10 * 60 * 60,
   });
 
-  console.log('error inthe detail product', error);
-
   const cartObject = {
     id: data?.id,
     price: data?.price,

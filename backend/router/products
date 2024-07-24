@@ -9,7 +9,3 @@ route
 route.get('/:id', productControllers.getProduct);
 
 module.exports = route;
-
-function checkData(req, res) {
-  console.log(req.url);
-}

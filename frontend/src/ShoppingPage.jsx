@@ -12,8 +12,6 @@ function ShoppingPage() {
     // staleTime: 9 * 60 * 60,
   });
 
-  console.log('error inthe shopping page', error);
-
   return (
     <div className={styles.shopping}>
       {isPending && <Loading />}

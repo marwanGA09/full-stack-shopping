@@ -48,15 +48,15 @@ export async function action({ request, params }) {
     rating: { count: data.rating },
   };
 
-  console.log('formData', data);
-  console.log('content', content);
+  // console.log('formData', data);
+  // console.log('content', content);
   axios
     .post(`${myURL}/products`, content, { contentType: 'application/json' })
     .then((res) => {
-      console.log('post res', res);
+      // console.log('post res', res);
     })
     .catch((err) => {
-      console.log('err', err);
+      console.error('err', err);
     });
   return redirect('/shopping');
 }
