@@ -5,7 +5,7 @@ function readFile(path) {
 }
 
 let products = readFile(`${__dirname}/../json/data.json`);
-console.log(products);
+// console.log(products);
 function myWriteFile(path, content) {
   return fs.writeFile(path, JSON.stringify(content), (err) => {
     err && console.error(err);

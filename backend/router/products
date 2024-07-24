@@ -2,10 +2,14 @@ const productControllers = require('./../controllers/products');
 const express = require('express');
 const route = express.Router();
 
-route.get('/', productControllers.getAllProducts);
+route
+  .get('/', productControllers.getAllProducts)
+  .post('/', productControllers.addProduct);
 
 route.get('/:id', productControllers.getProduct);
 
-route.post('/', productControllers.addProduct);
-
 module.exports = route;
+
+function checkData(req, res) {
+  console.log(req.url);
+}
