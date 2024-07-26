@@ -1,5 +1,3 @@
-const myURL = `http://localhost:8888`;
-// JSON SERVER FILE
-//  http://localhost:3001/products;
+const myURL = `https://m-shopping-cart-api.onrender.com`;
 
 export default myURL;
