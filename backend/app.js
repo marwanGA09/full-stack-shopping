@@ -7,13 +7,13 @@ const productRoute = require('./router/products');
 
 const app = express();
 // from any where, ONLY DEV MODE
-// app.use(cors());
+app.use(cors());
 // PRODUCTION MODE
-const corsOption = {
-  origin: 'https://m-shopping-page.onrender.com',
-};
+// const corsOption = {
+//   origin: 'https://m-shopping-page.onrender.com',
+// };
 
-app.use(cors(corsOption));
+// app.use(cors(corsOption));
 
 app.use(morgan('dev'));
 
