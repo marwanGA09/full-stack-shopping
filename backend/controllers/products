@@ -9,12 +9,12 @@ let products = readFile(`${__dirname}/../json/data.json`);
 function myWriteFile(path, content) {
   return fs.writeFile(path, JSON.stringify(content), (err) => {
     err && console.error(err);
-    console.log('successful');
+    // console.log('successful');
   });
 }
 
 const getAllProducts = (req, res) => {
-  console.log('products', products);
+  // console.log('products', products);
   return res.json(products);
 };
 

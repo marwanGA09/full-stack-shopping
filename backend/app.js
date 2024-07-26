@@ -10,7 +10,7 @@ const app = express();
 // app.use(cors());
 // PRODUCTION MODE
 const corsOption = {
-  origin: 'http://localhost:5173',
+  origin: 'https://m-shopping-page.onrender.com',
 };
 
 app.use(cors(corsOption));
