@@ -2,6 +2,7 @@ import axios from 'axios';
 import myURL from './URL/url';
 export default async function fetcher(params) {
   const url = params ? `${myURL}/products/${params}` : `${myURL}/products`;
+  console.log('url', url);
   try {
     const res = await axios.get(url);
     if (res.statusText.toLowerCase() !== 'ok') {

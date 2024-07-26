@@ -4,13 +4,36 @@ import fetcher from './fetcher';
 import Loading from './Loading';
 import ErrorPage from './ErrorPage';
 import styles from './ShoppingPage.module.css';
+import { useEffect, useState } from 'react';
 
 function ShoppingPage() {
-  const { data, error, isPending } = useQuery({
-    queryKey: ['products'],
-    queryFn: () => fetcher(''),
-    // staleTime: 9 * 60 * 60,
-  });
+  // const { data, error, isPending } = useQuery({
+  //   queryKey: ['products'],
+  //   queryFn: () => fetcher(''),
+  //   // staleTime: 9 * 60 * 60,
+  // });
+
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setIsPending(true);
+    fetch('https://m-shopping-cart-api.onrender.com/products')
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((dat) => {
+        console.log(dat);
+        setData(dat);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      })
+      .finally(setIsPending(false));
+  }, []);
 
   return (
     <div className={styles.shopping}>

@@ -1,6 +1,6 @@
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import Button from './Button';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from './App';
 import { useQuery } from '@tanstack/react-query';
 import fetcher from './fetcher';
@@ -12,11 +12,33 @@ import Counter from './Counter';
 function DetailProduct() {
   const [count, setCount] = useState(1);
   const params = useParams();
-  const { data, error, isPending } = useQuery({
-    queryKey: [params.id],
-    queryFn: () => fetcher(params.id),
-    // staleTime: 10 * 60 * 60,
-  });
+  // const { data, error, isPending } = useQuery({
+  //   queryKey: [params.id],
+  //   queryFn: () => fetcher(params.id),
+  //   // staleTime: 10 * 60 * 60,
+  // });
+
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(false);
+  const [data, setData] = useState({});
+  console.log(`https://m-shopping-cart-api.onrender.com/products/${params.id}`);
+  useEffect(() => {
+    setIsPending(true);
+    fetch(`https://m-shopping-cart-api.onrender.com/products/${params.id}`)
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((dat) => {
+        console.log(dat);
+        setData(dat);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      })
+      .finally(setIsPending(false));
+  }, [params.id]);
 
   const cartObject = {
     id: data?.id,
@@ -45,7 +67,7 @@ function DetailProduct() {
         <div className={styles.detail}>
           <img src={data.image} width={400} />
           <h3>{data.title}</h3>
-          <p className={styles.abs}>Count: {data.rating.count}</p>
+          <p className={styles.abs}>Count: {data.rating?.count}</p>
           <p>{data.description}</p>
           <p>
             <em>Price: ${Number(data.price).toFixed(1)}</em>
