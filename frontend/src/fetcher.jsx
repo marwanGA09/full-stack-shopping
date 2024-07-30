@@ -5,6 +5,7 @@ export default async function fetcher(params) {
   console.log('url', url);
   try {
     const res = await axios.get(url);
+    console.log('res', res);
     if (res.statusText.toLowerCase() !== 'ok') {
       // Check for CORS error based on specific status codes or response format
       if (res.status === 403) {
@@ -16,7 +17,8 @@ export default async function fetcher(params) {
     }
     return res.data;
   } catch (err) {
-    throw new Error('Something went Wrong before fetching');
+    console.log('error', err);
+    return [];
   }
   // return await res.json();
 }

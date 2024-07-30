@@ -9,36 +9,37 @@ import ErrorPage from './ErrorPage';
 import styles from './DetailProduct.module.css';
 import Counter from './Counter';
 
+import myURL from './URL/url';
+
 function DetailProduct() {
   const [count, setCount] = useState(1);
   const params = useParams();
-  // const { data, error, isPending } = useQuery({
-  //   queryKey: [params.id],
-  //   queryFn: () => fetcher(params.id),
-  //   // staleTime: 10 * 60 * 60,
-  // });
+  const { data, error, isPending } = useQuery({
+    queryKey: [params.id],
+    queryFn: () => fetcher(params.id),
+    // staleTime: 10 * 60 * 60,
+  });
 
-  const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState(false);
-  const [data, setData] = useState({});
-  console.log(`https://m-shopping-cart-api.onrender.com/products/${params.id}`);
-  useEffect(() => {
-    setIsPending(true);
-    fetch(`https://m-shopping-cart-api.onrender.com/products/${params.id}`)
-      .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then((dat) => {
-        console.log(dat);
-        setData(dat);
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(true);
-      })
-      .finally(setIsPending(false));
-  }, [params.id]);
+  // const [isPending, setIsPending] = useState(false);
+  // const [error, setError] = useState(false);
+  // const [data, setData] = useState({});
+  // useEffect(() => {
+  //   setIsPending(true);
+  //   fetch(`${myURL}/products/${params.id}`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       return res.json();
+  //     })
+  //     .then((dat) => {
+  //       console.log(dat);
+  //       setData(dat);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setError(true);
+  //     })
+  //     .finally(setIsPending(false));
+  // }, [params.id]);
 
   const cartObject = {
     id: data?.id,
