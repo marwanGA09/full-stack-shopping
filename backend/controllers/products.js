@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ProductModel = require('../models/productModel');
 
 function readFile(path) {
   return JSON.parse(fs.readFileSync(path, 'utf-8'));
@@ -26,16 +27,32 @@ const getProduct = (req, res) => {
 };
 
 const addProduct = (req, res) => {
-  const data = req.body;
-  products = [...products, data];
-  myWriteFile(`${__dirname}/../json/data.json`, products);
+  // const data = req.body;
+  // products = [...products, data];
+  // myWriteFile(`${__dirname}/../json/data.json`, products);
 
-  return res.json({
-    status: 'success',
-    data: {
-      product: data,
-    },
-  });
+  console.log('add product', req.body);
+
+  const newProduct = new ProductModel(req.body);
+  newProduct
+    .save()
+    .then((product) => {
+      console.log('produt is success');
+      return res.json({
+        status: 'success',
+        data: {
+          product: newProduct,
+        },
+      });
+    })
+    .catch((err) => {
+      console.log('error', err);
+      return res.status(400).json({
+        status: 'failure',
+        message: 'Error adding product',
+        error: err,
+      });
+    });
 };
 
 module.exports = { getAllProducts, getProduct, addProduct };

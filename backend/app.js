@@ -3,7 +3,7 @@ const morgan = require('morgan');
 // ALLOW TO BE ACCESSED FROM SPECIFIED OR ANYWHERE ON INTERNAT
 const cors = require('cors');
 
-const productRoute = require('./router/products');
+const productRoute = require('./router/products.js');
 
 const app = express();
 // from any where, ONLY DEV MODE
