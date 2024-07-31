@@ -15,17 +15,23 @@ function myWriteFile(path, content) {
 }
 
 const getAllProducts = async (req, res) => {
-  console.log('getall');
-  const allProducts = await ProductModel.find();
-  console.log(allProducts);
-  return res.json(allProducts);
+  try {
+    const allProducts = await ProductModel.find();
+    return res.json(allProducts);
+  } catch (err) {
+    res.status(404).end();
+  }
 };
 
-const getProduct = (req, res) => {
-  const id = req.params.id;
-  const currentProduct = products.find((product) => product.id === id);
-  if (currentProduct) return res.json(currentProduct);
-  return res.status(404).end();
+const getProduct = async (req, res) => {
+  try {
+    const id = req.params.id;
+    console.log('get single with id', id);
+    const currentProduct = await ProductModel.find({ _id: id });
+    return res.json(currentProduct);
+  } catch (err) {
+    res.status(404).end();
+  }
 };
 
 const addProduct = (req, res) => {
