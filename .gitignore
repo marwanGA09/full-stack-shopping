@@ -27,3 +27,4 @@ dist-ssr
 
 backend/json/data.json
 backend/.env
+backend/utils/copyToDataBase.js
