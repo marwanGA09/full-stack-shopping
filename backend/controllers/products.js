@@ -34,33 +34,30 @@ const getProduct = async (req, res) => {
   }
 };
 
-const addProduct = (req, res) => {
+const addProduct = async (req, res) => {
   // const data = req.body;
   // products = [...products, data];
   // myWriteFile(`${__dirname}/../json/data.json`, products);
 
-  console.log('add product', req.body);
-
-  const newProduct = new ProductModel(req.body);
-  newProduct
-    .save()
-    .then((product) => {
-      console.log('produt is success');
-      return res.json({
-        status: 'success',
-        data: {
-          product: newProduct,
-        },
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-      return res.status(400).json({
-        status: 'failure',
-        message: 'Error adding product',
-        error: err,
-      });
+  try {
+    const newProduct = new ProductModel(req.body);
+    const newP = await newProduct.save();
+    console.log('newProduct', newProduct);
+    console.log('newP', newP);
+    return res.json({
+      status: 'success',
+      data: {
+        product: newProduct,
+      },
     });
+  } catch (err) {
+    console.log('error', err);
+    return res.status(400).json({
+      status: 'failure',
+      message: 'Error adding product',
+      error: err,
+    });
+  }
 };
 
 module.exports = { getAllProducts, getProduct, addProduct };
