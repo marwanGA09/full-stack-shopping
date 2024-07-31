@@ -14,7 +14,7 @@ import myURL from './URL/url';
 function DetailProduct() {
   const [count, setCount] = useState(1);
   const params = useParams();
-  const { data, error, isPending } = useQuery({
+  let { data, error, isPending } = useQuery({
     queryKey: [params.id],
     queryFn: () => fetcher(params.id),
     // staleTime: 10 * 60 * 60,

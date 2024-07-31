@@ -10,7 +10,7 @@ function ProductDisplay({ product }) {
   const { onInCart } = useContext(CartContext);
 
   const cartObject = {
-    id: product?.id,
+    id: product?._id,
     price: product?.price,
     name: product?.title,
     count,
@@ -49,7 +49,7 @@ function ProductDisplay({ product }) {
           }}
         />
         <Link
-          to={`/shopping/${product.id}?ie=${product.image
+          to={`/shopping/${product._id}?ie=${product.image
             .slice(0, -4)
             .split('/')
             .at(-1)}`}

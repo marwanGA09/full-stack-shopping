@@ -47,7 +47,7 @@ function ShoppingPage() {
           <h2>Don&apos;t Miss Out on Our Latest Deals</h2>{' '}
           <div className={styles.grid}>
             {data.map((pro) => (
-              <ProductDisplay product={pro} key={pro.id} />
+              <ProductDisplay product={pro} key={pro._id} />
             ))}{' '}
           </div>
         </>
