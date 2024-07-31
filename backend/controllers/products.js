@@ -2,7 +2,8 @@ const ProductModel = require('../models/productModel');
 
 const getAllProducts = async (req, res) => {
   try {
-    const allProducts = await ProductModel.find();
+    let allProducts = ProductModel.find();
+    allProducts = await allProducts.sort('title');
     return res.json({
       status: 'success',
       totalProduct: allProducts.length,
