@@ -14,9 +14,11 @@ function myWriteFile(path, content) {
   });
 }
 
-const getAllProducts = (req, res) => {
-  // console.log('products', products);
-  return res.json(products);
+const getAllProducts = async (req, res) => {
+  console.log('getall');
+  const allProducts = await ProductModel.find();
+  console.log(allProducts);
+  return res.json(allProducts);
 };
 
 const getProduct = (req, res) => {
