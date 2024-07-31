@@ -20,6 +20,6 @@ app.use(morgan('dev'));
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/products', productRoute);
+app.use('/v1/products', productRoute);
 
 module.exports = app;
