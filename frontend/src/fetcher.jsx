@@ -6,10 +6,9 @@ export default async function fetcher(params) {
   try {
     const res = await axios.get(url);
     console.log('res', res);
-
-    return res.data;
+    return res.data.products.data;
   } catch (err) {
-    console.log('error', err);
+    console.log('front error', err);
     return [];
   }
   // return await res.json();
