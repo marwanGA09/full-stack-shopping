@@ -2,7 +2,7 @@ const ProductModel = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('./catchAsync');
 
-const getAllProducts = catchAsync(async (req, res) => {
+const getAllProducts = catchAsync(async (req, res, next) => {
   let allProducts = ProductModel.find();
   allProducts = await allProducts.sort('title');
   res.json({
@@ -14,14 +14,17 @@ const getAllProducts = catchAsync(async (req, res) => {
 
 const getProduct = catchAsync(async (req, res, next) => {
   const id = req.params.id;
-  const currentProduct = await ProductModel.find({ _id: id });
+  const currentProduct = await ProductModel.findById(id);
+  if (!currentProduct) {
+    throw new AppError(`product with ${id} is not found`, 404);
+  }
   res.json({
     status: 'success',
-    products: { data: currentProduct[0] },
+    products: { data: currentProduct },
   });
 });
 
-const addProduct = catchAsync(async (req, res) => {
+const addProduct = catchAsync(async (req, res, next) => {
   const newProduct = new ProductModel(req.body);
   const newP = await newProduct.save();
   console.log('newProduct', newProduct);
