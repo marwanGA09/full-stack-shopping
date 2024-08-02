@@ -1,6 +1,6 @@
 const ProductModel = require('../models/productModel');
 const AppError = require('../utils/appError');
-const catchAsync = require('./catchAsync');
+const catchAsync = require('../utils/catchAsync');
 
 const getAllProducts = catchAsync(async (req, res, next) => {
   let allProducts = ProductModel.find();
