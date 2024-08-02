@@ -4,7 +4,7 @@ const getAllProducts = async (req, res) => {
   try {
     let allProducts = ProductModel.find();
     allProducts = await allProducts.sort('title');
-    return res.json({
+    res.json({
       status: 'success',
       totalProduct: allProducts.length,
       products: { data: allProducts },
@@ -17,9 +17,7 @@ const getAllProducts = async (req, res) => {
 const getProduct = async (req, res) => {
   try {
     const id = req.params.id;
-    console.log('get single with id', id);
     const currentProduct = await ProductModel.find({ _id: id });
-    // return res.json(currentProduct[0]);
     return res.json({
       status: 'success',
       products: { data: currentProduct[0] },

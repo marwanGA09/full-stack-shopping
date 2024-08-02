@@ -10,8 +10,7 @@ const DB_URL = process.env.DATABASE_URL.replace(
 );
 
 mongoose.connect(DB_URL).then((conn) => {
-  console.log('connected');
-  //   console.log(conn.connection);
+  console.log('DB connected');
 });
 
 const PORT = process.env.PORT || 8888;
